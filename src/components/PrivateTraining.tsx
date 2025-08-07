@@ -26,7 +26,7 @@ export default function PrivateTraining({
       return;
     }
 
-    const msg = `Hi, my name is ${name}, and I'm interested in private training at The Good Fit.\nPhone: ${phone}`;
+    const msg = `Hi, my name is ${name}, and I'm interested in private training at Dee Good Fit.\nPhone: ${phone}`;
     const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
     window.open(waLink, "_blank");
   };
