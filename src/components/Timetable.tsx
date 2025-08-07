@@ -4,7 +4,7 @@ import { FiCalendar, FiClock, FiMapPin, FiFilter } from "react-icons/fi";
 import { schedule, DAYS, CLASS_TYPES, type ClassSlot } from "../data/schedule";
 import { useClassCart } from "../context/ClassCartContext";
 import CartModal from "./CartModal";
-import { toast } from "react-hot-toast";
+// import { toast } from "react-hot-toast";
 
 const container: Variants = {
   hidden: { opacity: 0 },
