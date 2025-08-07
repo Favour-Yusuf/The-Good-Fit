@@ -1,133 +1,160 @@
 export type ClassSlot = {
-  day: Day;
+  day: "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
   time: string;
   className: string;
-  trainer: string;
   location?: string;
   capacity?: number;
+  type: "Strength" | "Dance" | "Boxing" | "Pilates" | "Cardio" | "HIIT" | "Stretch";
 };
 
-export const DAYS = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-] as const;
+export const DAYS: ClassSlot["day"][] = [
+  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+];
 
-export type Day = (typeof DAYS)[number];
-
-export const TRAINERS = [
-  "Timi", "Dee", "Rose", "Lucy", "Ruth", "Precious", "Vicky"
+export const CLASS_TYPES: ClassSlot["type"][] = [
+  "Strength", "Dance", "Boxing", "Pilates", "Cardio", "HIIT", "Stretch"
 ];
 
 export const schedule: ClassSlot[] = [
-  // --- Monday ---
-  { day: "Monday", time: "7:00 AM", className: "Aerobics", trainer: "Timi" },
-  { day: "Monday", time: "8:00 AM", className: "Strength", trainer: "Dee" },
-  { day: "Monday", time: "8:00 AM", className: "Aerobics", trainer: "Timi" },
-  { day: "Monday", time: "9:00 AM", className: "Strength", trainer: "Dee" },
-  { day: "Monday", time: "9:00 AM", className: "Aerobics", trainer: "Timi" },
-  { day: "Monday", time: "10:00 AM", className: "Strength", trainer: "Dee" },
-  { day: "Monday", time: "10:00 AM", className: "Strength", trainer: "Timi" },
-  { day: "Monday", time: "11:00 AM", className: "Strength & Conditioning", trainer: "Timi" },
-  { day: "Monday", time: "11:00 AM", className: "Strength", trainer: "Dee" },
-  { day: "Monday", time: "12:00 PM", className: "Strength & Conditioning", trainer: "Timi" },
-  { day: "Monday", time: "12:00 PM", className: "Strength", trainer: "Dee" },
-  { day: "Monday", time: "1:00 PM", className: "Pilates", trainer: "Ruth" },
-  { day: "Monday", time: "1:00 PM", className: "Strength", trainer: "Rose" },
-  { day: "Monday", time: "2:00 PM", className: "Pilates", trainer: "Ruth" },
-  { day: "Monday", time: "2:00 PM", className: "Strength", trainer: "Rose" },
-  { day: "Monday", time: "3:00 PM", className: "Pilates", trainer: "Ruth" },
-  { day: "Monday", time: "3:00 PM", className: "Strength", trainer: "Rose" },
-  { day: "Monday", time: "4:00 PM", className: "Pilates", trainer: "Ruth" },
-  { day: "Monday", time: "4:00 PM", className: "Strength", trainer: "Rose" },
-  { day: "Monday", time: "5:00 PM", className: "Pilates", trainer: "Ruth" },
-  { day: "Monday", time: "5:00 PM", className: "Strength", trainer: "Rose" },
-  { day: "Monday", time: "6:00 PM", className: "Pilates", trainer: "Ruth" },
-  { day: "Monday", time: "6:00 PM", className: "Strength", trainer: "Rose" },
+  // Monday
+  {
+    day: "Monday",
+    time: "7:00 AM",
+    className: "STRENGTH CIRCUIT",
+    type: "Strength",
+    location: "Studio",
+    capacity: 10,
+  },
+  {
+    day: "Monday",
+    time: "1:00 PM",
+    className: "DANCE FUSION",
+    type: "Dance",
+    location: "Studio",
+    capacity: 15,
+  },
+  {
+    day: "Monday",
+    time: "5:00 PM",
+    className: "PILATES FLOW",
+    type: "Pilates",
+    location: "Studio",
+    capacity: 12,
+  },
 
-  // --- Tuesday ---
-  { day: "Tuesday", time: "7:00 AM", className: "Step Class", trainer: "Timi" },
-  { day: "Tuesday", time: "8:00 AM", className: "Step Class", trainer: "Timi" },
-  { day: "Tuesday", time: "9:00 AM", className: "Step Class", trainer: "Timi" },
-  { day: "Tuesday", time: "10:00 AM", className: "Step Class", trainer: "Timi" },
-  { day: "Tuesday", time: "10:00 AM", className: "Strength", trainer: "Lucy" },
-  { day: "Tuesday", time: "11:00 AM", className: "Step Class", trainer: "Timi" },
-  { day: "Tuesday", time: "11:00 AM", className: "Strength", trainer: "Lucy" },
-  { day: "Tuesday", time: "12:00 PM", className: "Step Class", trainer: "Timi" },
-  { day: "Tuesday", time: "12:00 PM", className: "Strength", trainer: "Lucy" },
-  { day: "Tuesday", time: "1:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Tuesday", time: "2:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Tuesday", time: "3:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Tuesday", time: "4:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Tuesday", time: "5:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Tuesday", time: "6:00 PM", className: "Dance", trainer: "Precious" },
+  // Tuesday
+  {
+    day: "Tuesday",
+    time: "9:00 AM",
+    className: "BOXING BASICS",
+    type: "Boxing",
+    location: "Studio",
+    capacity: 10,
+  },
+  {
+    day: "Tuesday",
+    time: "1:00 PM",
+    className: "CARDIO BLAST",
+    type: "Cardio",
+    location: "Studio",
+    capacity: 15,
+  },
+  {
+    day: "Tuesday",
+    time: "5:00 PM",
+    className: "HIIT STRENGTH",
+    type: "HIIT",
+    location: "Studio",
+    capacity: 12,
+  },
 
-  // --- Wednesday ---
-  { day: "Wednesday", time: "7:00 AM", className: "Strength Group", trainer: "Rose" },
-  { day: "Wednesday", time: "8:00 AM", className: "Strength PT", trainer: "Dee" },
-  { day: "Wednesday", time: "8:00 AM", className: "Strength Group", trainer: "Rose" },
-  { day: "Wednesday", time: "9:00 AM", className: "Strength PT", trainer: "Dee" },
-  { day: "Wednesday", time: "9:00 AM", className: "Strength Group", trainer: "Rose" },
-  { day: "Wednesday", time: "10:00 AM", className: "Strength PT", trainer: "Dee" },
-  { day: "Wednesday", time: "10:00 AM", className: "Strength Group", trainer: "Rose" },
-  { day: "Wednesday", time: "11:00 AM", className: "Strength PT", trainer: "Dee" },
-  { day: "Wednesday", time: "11:00 AM", className: "Strength Group", trainer: "Rose" },
-  { day: "Wednesday", time: "12:00 PM", className: "Strength PT", trainer: "Dee" },
-  { day: "Wednesday", time: "12:00 PM", className: "Strength Group", trainer: "Rose" },
-  { day: "Wednesday", time: "1:00 PM", className: "Strength PT", trainer: "Rose" },
-  { day: "Wednesday", time: "2:00 PM", className: "Strength PT", trainer: "Rose" },
-  { day: "Wednesday", time: "3:00 PM", className: "Strength PT", trainer: "Rose" },
-  { day: "Wednesday", time: "4:00 PM", className: "Strength PT", trainer: "Rose" },
-  { day: "Wednesday", time: "5:00 PM", className: "Strength PT", trainer: "Rose" },
-  { day: "Wednesday", time: "6:00 PM", className: "Strength PT", trainer: "Rose" },
+  // Wednesday
+  {
+    day: "Wednesday",
+    time: "8:00 AM",
+    className: "STRETCH & RECOVER",
+    type: "Stretch",
+    location: "Studio",
+    capacity: 10,
+  },
+  {
+    day: "Wednesday",
+    time: "12:00 PM",
+    className: "DANCE BURN",
+    type: "Dance",
+    location: "Studio",
+    capacity: 15,
+  },
+  {
+    day: "Wednesday",
+    time: "6:00 PM",
+    className: "HIIT POWER",
+    type: "HIIT",
+    location: "Studio",
+    capacity: 12,
+  },
 
-  // --- Thursday ---
-  { day: "Thursday", time: "7:00 AM", className: "Strength & Conditioning", trainer: "Timi" },
-  { day: "Thursday", time: "8:00 AM", className: "Strength & Conditioning", trainer: "Timi" },
-  { day: "Thursday", time: "9:00 AM", className: "Strength & Conditioning", trainer: "Timi" },
+  // Thursday
+  {
+    day: "Thursday",
+    time: "7:00 AM",
+    className: "PILATES CORE",
+    type: "Pilates",
+    location: "Studio",
+    capacity: 10,
+  },
+  {
+    day: "Thursday",
+    time: "1:00 PM",
+    className: "CARDIO FUNK",
+    type: "Cardio",
+    location: "Studio",
+    capacity: 15,
+  },
 
-  // --- Friday ---
-  { day: "Friday", time: "7:00 AM", className: "Strength", trainer: "Rose" },
-  { day: "Friday", time: "8:00 AM", className: "Beginner Group Class", trainer: "Vicky" },
-  { day: "Friday", time: "9:00 AM", className: "Beginner Group Class", trainer: "Vicky" },
-  { day: "Friday", time: "10:00 AM", className: "Beginner Group Class", trainer: "Vicky" },
-  { day: "Friday", time: "11:00 AM", className: "Beginner Group Class", trainer: "Vicky" },
-  { day: "Friday", time: "12:00 PM", className: "Beginner Group Class", trainer: "Vicky" },
-  { day: "Friday", time: "1:00 PM", className: "Beginner Group Class", trainer: "Vicky" },
-  { day: "Friday", time: "2:00 PM", className: "Beginner Group Class", trainer: "Vicky" },
-  { day: "Friday", time: "3:00 PM", className: "Beginner Group Class", trainer: "Vicky" },
-  { day: "Friday", time: "4:00 PM", className: "Beginner Group Class", trainer: "Vicky" },
-  { day: "Friday", time: "5:00 PM", className: "Beginner Group Class", trainer: "Vicky" },
-  { day: "Friday", time: "6:00 PM", className: "Beginner Group Class", trainer: "Vicky" },
+  // Friday
+  {
+    day: "Friday",
+    time: "9:00 AM",
+    className: "BOXING HIIT",
+    type: "Boxing",
+    location: "Studio",
+    capacity: 10,
+  },
+  {
+    day: "Friday",
+    time: "5:00 PM",
+    className: "DANCE FUSION",
+    type: "Dance",
+    location: "Studio",
+    capacity: 15,
+  },
 
-  // --- Saturday ---
-  { day: "Saturday", time: "8:00 AM", className: "Pilates", trainer: "Ruth" },
-  { day: "Saturday", time: "8:00 AM", className: "Strength PT", trainer: "Dee" },
-  { day: "Saturday", time: "8:00 AM", className: "Strength", trainer: "Rose" },
-  { day: "Saturday", time: "9:00 AM", className: "Pilates", trainer: "Ruth" },
-  { day: "Saturday", time: "9:00 AM", className: "Strength PT", trainer: "Dee" },
-  { day: "Saturday", time: "9:00 AM", className: "Strength", trainer: "Rose" },
-  { day: "Saturday", time: "10:00 AM", className: "Pilates", trainer: "Ruth" },
-  { day: "Saturday", time: "10:00 AM", className: "Strength PT", trainer: "Dee" },
-  { day: "Saturday", time: "10:00 AM", className: "Strength", trainer: "Rose" },
-  { day: "Saturday", time: "11:00 AM", className: "Strength PT", trainer: "Dee" },
-  { day: "Saturday", time: "11:00 AM", className: "Pilates", trainer: "Ruth" },
-  { day: "Saturday", time: "11:00 AM", className: "Strength", trainer: "Rose" },
+  // Saturday
+  {
+    day: "Saturday",
+    time: "10:00 AM",
+    className: "STRENGTH CIRCUIT",
+    type: "Strength",
+    location: "Studio",
+    capacity: 12,
+  },
+  {
+    day: "Saturday",
+    time: "12:00 PM",
+    className: "STRETCH & FLEX",
+    type: "Stretch",
+    location: "Studio",
+    capacity: 15,
+  },
 
-  // --- Sunday ---
-  { day: "Sunday", time: "12:00 PM", className: "Strength", trainer: "Rose" },
-  { day: "Sunday", time: "12:00 PM", className: "Pilates", trainer: "Ruth" },
-  { day: "Sunday", time: "12:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Sunday", time: "1:00 PM", className: "Strength", trainer: "Rose" },
-  { day: "Sunday", time: "1:00 PM", className: "Pilates", trainer: "Ruth" },
-  { day: "Sunday", time: "1:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Sunday", time: "2:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Sunday", time: "3:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Sunday", time: "4:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Sunday", time: "5:00 PM", className: "Dance", trainer: "Precious" },
-  { day: "Sunday", time: "6:00 PM", className: "Dance", trainer: "Precious" },
+  // Sunday
+  {
+    day: "Sunday",
+    time: "10:00 AM",
+    className: "PILATES FLOW",
+    type: "Pilates",
+    location: "Studio",
+    capacity: 12,
+  }
 ];

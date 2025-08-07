@@ -86,8 +86,9 @@ export default function Hero({
             variants={item}
             className="mx-auto mt-4 max-w-2xl text-base text-white/80 md:mx-0 md:text-lg"
           >
-            High-intensity classes. Ruthless strength sessions. Coaches who don’t
-            accept your excuses — only your results.
+            Fun, effective classes designed to meet you where you are.
+Coaches who care. A community that keeps you consistent .
+
           </motion.p>
 
           <motion.div

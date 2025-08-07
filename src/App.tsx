@@ -2,6 +2,7 @@
 import Hero from "./components/Hero";
 import Timetable from "./components/Timetable";
 
+
 function App() {
   return (
     <>
