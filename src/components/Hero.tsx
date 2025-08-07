@@ -28,7 +28,7 @@ export default function Hero({
   bgImageUrl,
   logoUrl,
   whatsappNumber,
-  gymName = "The Good Fit",
+  gymName = "Dee Good Fit",
 }: HeroProps) {
   const message = `Hi, I’d like to book a class at ${gymName}.`;
   const wa = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -60,7 +60,7 @@ export default function Hero({
         {/* Optional top-right quick call */}
         <a
           href={wa}
-          className="pointer-events-auto hidden items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm font-medium hover:bg-white hover:text-black md:flex"
+          className="pointer-events-auto hidden items-center gap-2 text-[#8200db] bg-white rounded-full border border-[#8300db84] px-4 py-2 text-sm font-medium hover:bg-white hover:text-black md:flex"
         >
           <FiPhoneCall className="text-lg" />
           Book on WhatsApp
@@ -99,7 +99,7 @@ Coaches who care. A community that keeps you consistent .
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-black transition hover:scale-[1.02] active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-white/60"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[#8200db] transition hover:scale-[1.02] active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-white/60"
             >
               <FiPlay className="text-lg" />
               Book Your Class
@@ -107,7 +107,7 @@ Coaches who care. A community that keeps you consistent .
 
             <a
               href="#timetable"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 px-6 py-3 font-medium text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 px-6 py-3 font-medium text-[#8200db] transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
             >
               View Timetable
               <FiChevronDown className="text-lg" />

@@ -40,6 +40,8 @@ export default function Timetable({ whatsappNumber, gymName = "The Good Fit" }: 
 
   const { addClass, removeClass, isClassSelected, maxReached } = useClassCart();
 
+  
+
   return (
     <section id="timetable" className="w-full bg-black text-white">
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8">
@@ -125,7 +127,7 @@ export default function Timetable({ whatsappNumber, gymName = "The Good Fit" }: 
 
         {/* Desktop Grid View */}
         <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-          {DAYS.map((d) => {
+          {DAYS.map((d: any) => {
             const slots = groupedByDay.get(d)!;
             return (
               <div key={d} className="flex flex-col rounded-2xl border border-white/10 bg-white/5">
@@ -193,18 +195,16 @@ function DesktopRow({ slot, selected, disabled, onToggle }: {
         </div>
       </div>
      <button
-  onClick={onToggle}
-  disabled={disabled}
-  className={`ml-auto px-3 py-2 text-xs font-semibold rounded-lg border-2 transition
-    ${selected
-      ? "bg-black text-purple-200 border-purple-600"
-      : disabled
-        ? "text-white/40 bg-white/10 border-white/20 cursor-not-allowed"
-        : " bg-black text-[#535bf2] border-white/35 border-8 hover:brightness-150"}
-  `}
->
-  {selected ? "✓ Added" : "+ Add"}
-</button>
+        onClick={onToggle}
+        disabled={disabled}
+        className={`ml-auto px-3 py-2 text-xs font-semibold rounded-lg border transition
+          ${selected ? "bg-purple-600 text-white border-purple-600" :
+            disabled ? "text-white/40 bg-white/10 border-white/20 cursor-not-allowed" :
+              "bg-white text-black border-white hover:bg-white/90"}
+        `}
+      >
+        {selected ? "✓ Added" : "+ Add"}
+      </button>
     </div>
   );
 }
@@ -226,19 +226,17 @@ function MobileCard({ slot, selected, disabled, onToggle }: {
         {slot.capacity && <span>{slot.capacity} spots</span>}
         {slot.location && <span className="inline-flex items-center gap-1"><FiMapPin /> {slot.location}</span>}
       </div>
-      <button
-  onClick={onToggle}
-  disabled={disabled}
-  className={`w-full py-2 text-sm font-semibold rounded-xl transition
-    ${selected
-      ? "bg-black text-purple-200 border-purple-600"
-      : disabled
-        ? "text-white/40 bg-white/10 border-white/20 cursor-not-allowed"
-        : "bg-black text-[#535bf2] border-white/35 brightness-150"}
-  `}
->
-  {selected ? "✓ Added" : "+ Add to Cart"}
-</button>
+     <button
+        onClick={onToggle}
+        disabled={disabled}
+        className={`w-full py-2 text-sm font-semibold rounded-xl transition
+          ${selected ? "bg-purple-600 text-white" :
+            disabled ? "bg-white/10 text-white/30 cursor-not-allowed" :
+              "bg-white text-black hover:bg-white/90"}
+        `}
+      >
+        {selected ? "✓ Added" : "+ Add to Cart"}
+      </button>
 
     </div>
   );
@@ -254,3 +252,4 @@ function toMinutes(timeLabel: string) {
   if (meridiem?.toUpperCase() === "AM" && h === 12) h = 0;
   return h * 60 + m;
 }
+
