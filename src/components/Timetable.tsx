@@ -192,17 +192,19 @@ function DesktopRow({ slot, selected, disabled, onToggle }: {
           {slot.location && <span className="inline-flex items-center gap-1"><FiMapPin /> {slot.location}</span>}
         </div>
       </div>
-      <button
-        onClick={onToggle}
-        disabled={disabled}
-        className={`ml-auto px-3 py-2 text-xs font-semibold rounded-lg border transition
-          ${selected ? "bg-purple-600 text-white border-purple-600" :
-            disabled ? "text-white/40 bg-white/10 border-white/20 cursor-not-allowed" :
-              "bg-white text-black border-white hover:bg-white/90"}
-        `}
-      >
-        {selected ? "✓ Added" : "+ Add"}
-      </button>
+     <button
+  onClick={onToggle}
+  disabled={disabled}
+  className={`ml-auto px-3 py-2 text-xs font-semibold rounded-lg border-2 transition
+    ${selected
+      ? "bg-black text-purple-200 border-purple-600"
+      : disabled
+        ? "text-white/40 bg-white/10 border-white/20 cursor-not-allowed"
+        : " bg-black text-[#535bf2] border-white/35 border-8 hover:brightness-150"}
+  `}
+>
+  {selected ? "✓ Added" : "+ Add"}
+</button>
     </div>
   );
 }
@@ -225,16 +227,19 @@ function MobileCard({ slot, selected, disabled, onToggle }: {
         {slot.location && <span className="inline-flex items-center gap-1"><FiMapPin /> {slot.location}</span>}
       </div>
       <button
-        onClick={onToggle}
-        disabled={disabled}
-        className={`w-full py-2 text-sm font-semibold rounded-xl transition
-          ${selected ? "bg-purple-600 text-white" :
-            disabled ? "bg-white/10 text-white/30 cursor-not-allowed" :
-              "bg-white text-black hover:bg-white/90"}
-        `}
-      >
-        {selected ? "✓ Added" : "+ Add to Cart"}
-      </button>
+  onClick={onToggle}
+  disabled={disabled}
+  className={`w-full py-2 text-sm font-semibold rounded-xl transition
+    ${selected
+      ? "bg-black text-purple-200 border-purple-600"
+      : disabled
+        ? "text-white/40 bg-white/10 border-white/20 cursor-not-allowed"
+        : "bg-black text-[#535bf2] border-white/35 brightness-150"}
+  `}
+>
+  {selected ? "✓ Added" : "+ Add to Cart"}
+</button>
+
     </div>
   );
 }
