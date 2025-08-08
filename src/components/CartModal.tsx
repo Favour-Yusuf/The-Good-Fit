@@ -81,9 +81,9 @@ function markAsBooked(name: string, phone: string) {
   }
 
   // New booking
-  const classList = selectedClasses
-    .map((cls, i) => `${i + 1}. ${cls.className} on ${cls.day} at ${cls.time}`)
-    .join("\n");
+  // const classList = selectedClasses
+  //   .map((cls, i) => `${i + 1}. ${cls.className} on ${cls.day} at ${cls.time}`)
+  //   .join("\n");
 
   const msg = `Hi, I’d like to book the following classes at ${gymName}:\n\n${classList}\n\nName: ${name}\nPhone: ${phone}${note ? `\nNote: ${note}` : ""}`;
   const bookingURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
