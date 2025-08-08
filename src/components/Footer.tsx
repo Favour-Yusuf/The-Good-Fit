@@ -17,12 +17,12 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <img
-            src="https://res.cloudinary.com/dcuad6p9z/image/upload/v1754426028/Thegoodfit-logo_a5zvnk.jpg"
+            src="https://res.cloudinary.com/dcuad6p9z/image/upload/v1754637745/Thegoodfit-logo-removebg-preview_fhcoii.png"
             alt="The Good Fit Logo"
             className="h-12 w-auto object-contain"
           />
           <div>
-            <h4 className="font-bold text-lg">Dee Good Fit</h4>
+            <h4 className="font-bold text-lg">DeeGoodFit Studio</h4>
             <p className="text-white/60 text-sm">Where strength meets purpose</p>
           </div>
         </div>
@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-2 text-white/80">
             <FiPhone className="text-purple-500" />
-            <span>+234 703 340 8291</span>
+            <span>+234 808 460 9951</span>
           </div>
           <a
             href="https://www.instagram.com/deegoodfit?utm_source=ig_web_button_share_sheet&igsh=NWlyZXlscDJ1Nm1t"
@@ -46,7 +46,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="text-sm text-white/50 text-center lg:text-right">
-          &copy; {new Date().getFullYear()} Dee Good Fit. All rights reserved.
+          &copy; {new Date().getFullYear()} DeeGoodFit Studio. All rights reserved.
         </div>
       </motion.div>
     </footer>

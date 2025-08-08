@@ -51,11 +51,11 @@ export default function Hero({
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black" />
 
       {/* Top bar with logo */}
-      <div className="pointer-events-none absolute left-0 right-0 top-0 z-20 flex items-center justify-between px-5 py-5 md:px-10">
+      <div className="pointer-events-none  absolute left-0 right-0 top-0 z-20 flex items-center justify-between px-5 py-5 md:px-10">
         <img
           src={logoUrl}
           alt={`${gymName} logo`}
-          className="pointer-events-auto h-10 w-auto md:h-12"
+          className="pointer-events-auto h-14 w-14 md:h-12"
         />
         {/* Optional top-right quick call */}
         <a

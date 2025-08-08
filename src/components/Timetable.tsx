@@ -16,7 +16,7 @@ const item: Variants = {
   show: { y: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
-export default function Timetable({ whatsappNumber, gymName = "Dee Good Fit" }: { whatsappNumber: string; gymName?: string }) {
+export default function Timetable({ whatsappNumber, gymName = "DeeGoodFit Studio" }: { whatsappNumber: string; gymName?: string }) {
   const [day, setDay] = useState<"All" | ClassSlot["day"]>("All");
   const [type, setType] = useState<"All" | string>("All");
   const [expandedDay, setExpandedDay] = useState<string | null>(DAYS[0]); // Default: Monday

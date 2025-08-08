@@ -55,7 +55,7 @@ function markAsBooked(name: string, phone: string) {
   }
 
  if (alreadyBooked(name, phone)) {
-  const waitlistMsg = `Hi, my name is ${name}. I’ve already booked a class this month. Please add me to the waitlist for next month.`;
+  const waitlistMsg = `Hi, my name is ${name}. I’ve already booked a class this month. I would like to make payments to reserve my spot for next month classes. \n\n${classList} \nPhone: ${phone}`;
   const waitlistURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(waitlistMsg)}`;
 
   const nextMonth = new Date();
@@ -63,7 +63,7 @@ function markAsBooked(name: string, phone: string) {
   const monthName = nextMonth.toLocaleString("default", { month: "long" });
 
   toast(`You’ve already booked this month. You can book again in ${monthName}.`);
-  setTimeout(() => window.open(waitlistURL, "_blank"), 1500);
+  setTimeout(() => window.open(waitlistURL, "_blank"), 2000);
   return;
 }
 
@@ -79,7 +79,7 @@ function markAsBooked(name: string, phone: string) {
   clearCart();
   setTimeout(() => 
   window.open(url, "_blank"),
-   1500);
+   2000);
   toast.success("Booking sent! ✅ We'll be expecting you.");
 setOpen(false); // Close the modal
 
