@@ -22,6 +22,10 @@ export default function CartModal({
   return `booked:${name.trim().toLowerCase()}-${phone.trim()}`;
 }
 
+ const classList = selectedClasses
+    .map((cls, i) => `${i + 1}. ${cls.className} on ${cls.day} at ${cls.time}`)
+    .join("\n");
+
 function alreadyBooked(name: string, phone: string) {
   const key = buildKey(name, phone);
   const stored = localStorage.getItem(key);
@@ -67,10 +71,6 @@ function markAsBooked(name: string, phone: string) {
   return;
 }
 
-
-  const classList = selectedClasses
-    .map((cls, i) => `${i + 1}. ${cls.className} on ${cls.day} at ${cls.time}`)
-    .join("\n");
 
   const msg = `Hi, I’d like to book the following classes at ${gymName}:\n\n${classList}\n\nName: ${name}\nPhone: ${phone}${note ? `\nNote: ${note}` : ""}`;
   const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
