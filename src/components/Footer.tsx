@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-2 text-white/80">
             <FiPhone className="text-purple-500" />
-            <span>+234 808 460 9951</span>
+            <span>+234 703 340 8291</span>
           </div>
           <a
             href="https://www.instagram.com/deegoodfit?utm_source=ig_web_button_share_sheet&igsh=NWlyZXlscDJ1Nm1t"
