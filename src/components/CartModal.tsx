@@ -48,7 +48,7 @@ function markAsBooked(name: string, phone: string) {
 }
 
 
-  const sendBooking = () => {
+ const sendBooking = () => {
   if (name.trim().length < 2) {
     toast.error("Please enter your name.");
     return;
@@ -58,32 +58,46 @@ function markAsBooked(name: string, phone: string) {
     return;
   }
 
- if (alreadyBooked(name, phone)) {
-  const waitlistMsg = `Hi, my name is ${name}. I’ve already booked a class this month. I would like to make payments to reserve my spot for next month classes. \n\n${classList} \nPhone: ${phone}`;
-  const waitlistURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(waitlistMsg)}`;
+  // Build the key for this user's booking
+  if (alreadyBooked(name, phone)) {
+    const classList = selectedClasses
+      .map((cls, i) => `${i + 1}. ${cls.className} on ${cls.day} at ${cls.time}`)
+      .join("\n");
 
-  const nextMonth = new Date();
-  nextMonth.setMonth(nextMonth.getMonth() + 1);
-  const monthName = nextMonth.toLocaleString("default", { month: "long" });
+    const waitlistMsg = `Hi, my name is ${name}. I’ve already booked a class this month. I would like to make payments to reserve my spot for next month classes. \n\n${classList} \nPhone: ${phone}`;
+    const waitlistURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(waitlistMsg)}`;
 
-  toast(`You’ve already booked this month. You can book again in ${monthName}.`);
-  setTimeout(() => window.open(waitlistURL, "_blank"), 2000);
-  return;
-}
+    const nextMonth = new Date();
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
+    const monthName = nextMonth.toLocaleString("default", { month: "long" });
 
+    toast(`You’ve already booked this month. You can book again in ${monthName}.`, {
+      duration: 4000,
+    });
+
+    // Open WhatsApp immediately — iOS will allow this if it's in click event
+    window.location.href = waitlistURL;
+    return;
+  }
+
+  // New booking
+  const classList = selectedClasses
+    .map((cls, i) => `${i + 1}. ${cls.className} on ${cls.day} at ${cls.time}`)
+    .join("\n");
 
   const msg = `Hi, I’d like to book the following classes at ${gymName}:\n\n${classList}\n\nName: ${name}\nPhone: ${phone}${note ? `\nNote: ${note}` : ""}`;
-  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+  const bookingURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
 
-  markAsBooked(name, phone); // ✅ Save booking info to localStorage
+  markAsBooked(name, phone);
   clearCart();
-  setTimeout(() => 
-  window.open(url, "_blank"),
-   2000);
-  toast.success("Booking sent! ✅ We'll be expecting you.");
-setOpen(false); // Close the modal
+  toast.success("Booking sent! ✅ We'll be expecting you.", { duration: 4000 });
 
+  // Open WhatsApp immediately
+  window.location.href = bookingURL;
+
+  setOpen(false);
 };
+
 
   if (selectedClasses.length === 0) return null;
 
